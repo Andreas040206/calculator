@@ -38,6 +38,8 @@ function executeCalculation(){
 const upperDisplayRef = document.querySelector('#upperDisplay')
 const lowerDisplayRef = document.querySelector('#lowerDisplay')
 
+upperDisplayRef.textContent = newNum;
+
 const Num7BtnRef = document.querySelector('#Num7Btn');
 const Num8BtnRef = document.querySelector('#Num8Btn');
 const Num9BtnRef = document.querySelector('#Num9Btn');
@@ -82,7 +84,7 @@ multiplyBtnRef.addEventListener('click', function(){
     } 
     executeCalculation()
     chosenOperator = 'multiply'
-    upperDisplayRef.textContent = newNum;
+    upperDisplayRef.textContent = newNum + ' x';
 })
 
 divideBtnRef.addEventListener('click', function(){
@@ -91,7 +93,7 @@ divideBtnRef.addEventListener('click', function(){
     } 
     executeCalculation()
     chosenOperator = 'divide'
-    upperDisplayRef.textContent = newNum;
+    upperDisplayRef.textContent = newNum + ' /';
 });
 
 minusBtnRef.addEventListener('click',function(){
@@ -100,6 +102,7 @@ minusBtnRef.addEventListener('click',function(){
     } 
     executeCalculation()
     chosenOperator = 'minus'
+    upperDisplayRef.textContent = newNum + ' -';
 })
 
 plusBtnRef.addEventListener('click',function(){
@@ -108,13 +111,13 @@ plusBtnRef.addEventListener('click',function(){
     } 
     executeCalculation()
     chosenOperator = 'plus'
-    upperDisplayRef.textContent = newNum;
+    upperDisplayRef.textContent = newNum + ' +';
 });
 
 equalBtnRef.addEventListener('click', function(){
     executeCalculation()
     chosenOperator = 'nothing'
-    upperDisplayRef.textContent = newNum;
+    upperDisplayRef.textContent = '= ' + newNum;
 });
 
 commaBtnRef.addEventListener('click', function(){
