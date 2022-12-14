@@ -1,5 +1,5 @@
 let firstNum = ''
-let newNum = '0'
+let newNum = ''
 let extraNum = ''
 let chosenOperator = 'nothing'
 
@@ -64,7 +64,7 @@ const equalBtnRef = document.querySelector('#equalBtn')
 
 clearAllBtnRef.addEventListener('click', function(){
     firstNum = ''
-    newNum = '0'
+    newNum = ''
     chosenOperator = 'nothing'
     lowerDisplayRef.textContent = firstNum;
     upperDisplayRef.textContent = newNum;
@@ -120,48 +120,55 @@ equalBtnRef.addEventListener('click', function(){
     upperDisplayRef.textContent = '= ' + newNum;
 });
 
+
+function executeBtn(a){
+    if(chosenOperator === 'nothing'){
+        newNum += a
+        upperDisplayRef.textContent = newNum
+    } else {
+    firstNum += a
+    lowerDisplayRef.textContent = firstNum
+    }    
+}
+
+
 commaBtnRef.addEventListener('click', function(){
+    if(chosenOperator === 'nothing'){
+        newNum += '.'
+        upperDisplayRef.textContent = newNum
+    } else {
     firstNum += '.'
     lowerDisplayRef.textContent = firstNum
+    }
 });
 
 Num7BtnRef.addEventListener('click', function(){
-    firstNum += 7
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(7)
 });
 Num8BtnRef.addEventListener('click', function(){
-    firstNum += 8
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(8)
 });
 Num9BtnRef.addEventListener('click', function(){
-    firstNum += 9
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(9)
 });
 Num4BtnRef.addEventListener('click', function(){
-    firstNum += 4
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(4)
 });
 Num5BtnRef.addEventListener('click', function(){
-    firstNum += 5
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(5)
 });
 Num6BtnRef.addEventListener('click', function(){
-    firstNum += 6
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(6)
 });
 Num1BtnRef.addEventListener('click', function(){
-    firstNum += 1
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(1)
 });
 Num2BtnRef.addEventListener('click', function(){
-    firstNum += 2
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(2)
 });
 Num3BtnRef.addEventListener('click', function(){
-    firstNum += 3
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(3)
 });
 Num0BtnRef.addEventListener('click', function(){
-    firstNum += 0
-    lowerDisplayRef.textContent = firstNum
+    executeBtn(0)
 });
