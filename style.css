@@ -15,7 +15,7 @@
     "seven eight nine clear allClear"
     "four five six divide multiply1"
     "one two three plus minus"
-    "nothing zero comma equal equal"
+    "zero1 zero1 comma equal equal"
     ;
 }
 
@@ -81,11 +81,6 @@
     background-color: rgb(169, 129, 83);
 }
 
-.nothingBtnClass{
-    grid-area: nothing;
-    background-color: rgb(223, 197, 169);
-}
-
 .commaBtnClass{
     grid-area: comma;
     background-color: rgb(223, 197, 169);
@@ -133,6 +128,10 @@
 }
 .Num3BtnClass {
     grid-area: three;
+}
+
+.Num0BtnClass {
+    grid-area: zero1;
 }
 
 .calContainer{
