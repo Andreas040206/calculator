@@ -1,6 +1,39 @@
 let firstNum = ''
-let newNum = ''
-let chosenOperator
+let newNum = '0'
+let extraNum = ''
+let chosenOperator = 'nothing'
+
+function executeCalculation(){
+    if (chosenOperator === 'plus'){
+        newNum = Number(newNum)
+        firstNum = Number(firstNum)
+        newNum = newNum + firstNum
+        upperDisplayRef.textContent = newNum
+        firstNum = ''
+        lowerDisplayRef.textContent = firstNum
+    } else if (chosenOperator === 'minus'){
+        newNum = Number(newNum)
+        firstNum = Number(firstNum)
+        newNum = newNum - firstNum
+        upperDisplayRef.textContent = newNum
+        firstNum = ''
+        lowerDisplayRef.textContent = firstNum
+    } else if (chosenOperator === 'divide'){
+        newNum = Number(newNum)
+        firstNum = Number(firstNum)
+        newNum = newNum / firstNum
+        upperDisplayRef.textContent = newNum
+        firstNum = ''
+        lowerDisplayRef.textContent = firstNum
+    } else if (chosenOperator === 'multiply'){
+        newNum = Number(newNum)
+        firstNum = Number(firstNum)
+        newNum = newNum * firstNum
+        upperDisplayRef.textContent = newNum
+        firstNum = ''
+        lowerDisplayRef.textContent = firstNum
+    } 
+}
 
 const upperDisplayRef = document.querySelector('#upperDisplay')
 const lowerDisplayRef = document.querySelector('#lowerDisplay')
@@ -16,29 +49,77 @@ const Num2BtnRef = document.querySelector('#Num2Btn');
 const Num3BtnRef = document.querySelector('#Num3Btn');
 const Num0BtnRef = document.querySelector('#Num0Btn');
 
+const commaBtnRef = document.querySelector('#commaBtn')
+
 const clearBtnRef = document.querySelector('#clearBtn')
 const clearAllBtnRef = document.querySelector('#clearAllBtn')
 
 const plusBtnRef = document.querySelector('#plusBtn')
+const minusBtnRef = document.querySelector('#minusBtn')
+const divideBtnRef = document.querySelector('#divideBtn')
+const multiplyBtnRef = document.querySelector('#multiplyBtn')
+const equalBtnRef = document.querySelector('#equalBtn')
 
 clearAllBtnRef.addEventListener('click', function(){
     firstNum = ''
     newNum = ''
+    chosenOperator = 'nothing'
     lowerDisplayRef.textContent = firstNum;
     upperDisplayRef.textContent = newNum;
 });
+
 
 clearBtnRef.addEventListener('click', function(){
     firstNum = firstNum.slice(0,-1)
     lowerDisplayRef.textContent = firstNum;
 });
 
-plusBtnRef.addEventListener('click',function(){
-    newNum = firstNum + '+';
+
+
+multiplyBtnRef.addEventListener('click', function(){
+    if(chosenOperator !=='minus' && chosenOperator !=='plus' && chosenOperator !=='divide' && chosenOperator !=='multiply' && chosenOperator !=='nothing'){
+        newNum = firstNum
+    } 
+    executeCalculation()
+    chosenOperator = 'multiply'
     upperDisplayRef.textContent = newNum;
-    firstNum = ''
-    lowerDisplayRef.textContent = firstNum;
+})
+
+divideBtnRef.addEventListener('click', function(){
+    if(chosenOperator !=='minus' && chosenOperator !=='plus' && chosenOperator !=='divide' && chosenOperator !=='multiply' && chosenOperator !=='nothing'){
+        newNum = firstNum
+    } 
+    executeCalculation()
+    chosenOperator = 'divide'
+    upperDisplayRef.textContent = newNum;
+});
+
+minusBtnRef.addEventListener('click',function(){
+    if(chosenOperator !=='minus' && chosenOperator !=='plus' && chosenOperator !=='divide' && chosenOperator !=='multiply' && chosenOperator !=='nothing'){
+        newNum = firstNum
+    } 
+    executeCalculation()
+    chosenOperator = 'minus'
+})
+
+plusBtnRef.addEventListener('click',function(){
+    if(chosenOperator !=='minus' && chosenOperator !=='plus' && chosenOperator !=='divide' && chosenOperator !=='multiply' && chosenOperator !=='nothing'){
+        newNum = firstNum
+    } 
+    executeCalculation()
     chosenOperator = 'plus'
+    upperDisplayRef.textContent = newNum;
+});
+
+equalBtnRef.addEventListener('click', function(){
+    executeCalculation()
+    chosenOperator = 'nothing'
+    upperDisplayRef.textContent = newNum;
+});
+
+commaBtnRef.addEventListener('click', function(){
+    firstNum += '.'
+    lowerDisplayRef.textContent = firstNum
 });
 
 Num7BtnRef.addEventListener('click', function(){
