@@ -64,7 +64,7 @@ const equalBtnRef = document.querySelector('#equalBtn')
 
 clearAllBtnRef.addEventListener('click', function(){
     firstNum = ''
-    newNum = ''
+    newNum = '0'
     chosenOperator = 'nothing'
     lowerDisplayRef.textContent = firstNum;
     upperDisplayRef.textContent = newNum;
